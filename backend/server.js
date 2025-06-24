@@ -1,23 +1,35 @@
-const express = require('express')
-const cors = require('cors')
-const path = require('path')
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+const connectToDb = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
+const incomeRoutes = require('./routes/incomeRoutes')
 
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
 app.use(express.json());
 const Port = process.env.PORT || 8000;
 
-app.use(cors({
+app.use(
+  cors({
     origin: process.env.CLIENT_URL || "*",
-    methods: ["GET", 'POST', 'PUT', 'DELETE'],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-}))+
+  })
+);
 
-app.get('/', (req, res) => {
-    res.send(`This is Home Route`)
-})
+app.get("/", (req, res) => {
+  res.send(`This is Home Route`);
+});
+
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/income", incomeRoutes);
+
+connectToDb();
+
+app.use('/uploads', express.static(path.join(__dirname, "uploads")));
 
 app.listen(Port, () => {
-    console.log(`server is running on Port http://localhost:${Port}`);
-})
+  console.log(`server is running on Port http://localhost:${Port}`);
+});
