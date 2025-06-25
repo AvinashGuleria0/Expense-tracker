@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const xlsx = require('xlsx')
 const Income = require("../models/Income");
 
 exports.addIncome = async (req, res) => {
@@ -30,13 +30,40 @@ exports.getAllIncome = async (req, res) => {
   const userId = req.user.id;
 
   try {
-    const income = await Income.find({ userId }).sort({ data: -1 });
+    const income = await Income.find({ userId }).sort({ date: -1 });
     res.json(income);
   } catch (err) {
     res.status(500).json({ message: `Internal server Error`, error: err });
   }
 };
 
-exports.deleteIncome = async (req, res) => {};
+exports.deleteIncome = async (req, res) => {
+  try {
+    await Income.findByIdAndDelete(req.params.id);
+    res.json({ message: `Income deleted successfully` });
+  } catch (err) {
+    res.status(500).json({ message: `Internal server Error`, error: err });
+  }
+};
 
-exports.downloadIncomeExcel = async (req, res) => {};
+exports.downloadIncomeExcel = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const income = await Income.find({ userId }).sort({ date: -1 });
+
+    const data = income.map((item) => ({
+      Source: item.source,
+      Amount: item.amount,
+      Date: item.date,
+    }));
+
+    const wb = xlsx.utils.book_new();
+    const ws = xlsx.utils.json_to_sheet(data);
+    xlsx.utils.book_append_sheet(wb, ws, "income");
+    xlsx.writeFile(wb, "income_details.xlsx");
+    res.download("income_details.xlsx");
+  } catch (err) {
+    res.status(500).json({ message: `Internal server Error`, error: err });
+  }
+};

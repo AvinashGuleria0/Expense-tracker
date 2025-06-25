@@ -3,7 +3,8 @@ const cors = require("cors");
 const path = require("path");
 const connectToDb = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
-const incomeRoutes = require('./routes/incomeRoutes')
+const incomeRoutes = require("./routes/incomeRoutes");
+const expenseRoutes = require("./routes/expenseRoutes");
 
 require("dotenv").config();
 
@@ -25,10 +26,11 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/income", incomeRoutes);
+app.use("/api/v1/expense", expenseRoutes);
 
 connectToDb();
 
-app.use('/uploads', express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.listen(Port, () => {
   console.log(`server is running on Port http://localhost:${Port}`);
