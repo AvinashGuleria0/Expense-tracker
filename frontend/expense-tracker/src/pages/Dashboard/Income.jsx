@@ -3,6 +3,7 @@ import DashboardLayout from "../../components/layouts/DashboardLayout";
 import IncomeOverview from "../../components/Income/IncomeOverview";
 import { data } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
+import { API_PATHS } from "../../utils/ApiPaths";
 
 const Income = () => {
   const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
@@ -56,6 +57,13 @@ const Income = () => {
             />
           </div>
         </div>
+        <Modal
+          onClose={openAddIncomeModal(false)}
+          isOpen={openAddIncomeModal}
+          title="Add Income"
+        >
+          <div></div>
+        </Modal>
       </div>
     </DashboardLayout>
   );

@@ -28,7 +28,8 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
         </button>
       </div>
       <div className="mt-10">
-    
+        <CustomeBarChart data={chartData} />
+
       </div>
     </div>
   );
