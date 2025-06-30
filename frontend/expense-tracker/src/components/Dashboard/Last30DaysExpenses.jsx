@@ -3,7 +3,7 @@ import { prepareExpenseBarChartData } from "../../utils/helper";
 import CustomBarChart from "../Charts/CustomBarChart";
 
 const Last30DaysExpenses = ({ data, item }) => {
-  const [charData, setCharData] = useState([]);
+  const [chartData, setCharData] = useState([]);
 
   useEffect(() => {
     const result = prepareExpenseBarChartData(data);
@@ -18,7 +18,7 @@ const Last30DaysExpenses = ({ data, item }) => {
         <h5 className="text-lg">Last 30 Days Expenses</h5>
       </div>
 
-      <CustomBarChart data={charData} />
+      <CustomBarChart data={chartData} />
     </div>
   );
 };
