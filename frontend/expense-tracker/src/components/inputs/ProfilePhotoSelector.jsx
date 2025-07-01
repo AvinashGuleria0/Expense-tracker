@@ -35,14 +35,26 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
       {!image ? (
         <div className="w-20 h-20 flex items-center justify-center bg-purple-100 rounded-full relative">
           <LuUser className="text-4xl text-primary" />
-          <button type="button" className="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1" onClick={onChooseFile}>
+          <button
+            type="button"
+            className="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1"
+            onClick={onChooseFile}
+          >
             <LuUpload />
           </button>
         </div>
       ) : (
         <div className="relative">
-          <img src={previewUrl} alt="Profile Image" className="w-20 h-20 rounded-full object-cover" />
-          <button type="button" className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full absolute -bottom-1 -right-1" onClick={handleRemoveImage}>
+          <img
+            src={previewUrl}
+            alt="Profile Image"
+            className="w-20 h-20 rounded-full object-cover"
+          />
+          <button
+            type="button"
+            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full absolute -bottom-1 -right-1"
+            onClick={handleRemoveImage}
+          >
             <LuTrash />
           </button>
         </div>

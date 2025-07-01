@@ -30,7 +30,7 @@ exports.registerUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (err) {
-    return res
+     res
       .status(500)
       .json({ message: `Internal server error`, error: err.message });
   }
