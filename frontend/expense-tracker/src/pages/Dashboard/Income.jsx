@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import IncomeOverview from "../../components/Income/IncomeOverview";
-import { data } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/ApiPaths";
 import Modal from "../../components/Modal";
@@ -15,7 +14,7 @@ import { useUserAuth } from "../../hooks/useUserAuth";
 const Income = () => {
   useUserAuth();
   const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
-  const [incomData, setIncomeData] = useState([]);
+  const [incomeData, setIncomeData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show: false,
@@ -119,18 +118,18 @@ const Income = () => {
   }, []);
 
   return (
-    <DashboardLayout activeMenu="Dashboard">
+    <DashboardLayout activeMenu="Income">
       <div className="my-5 mx-auto">
         <div className="grid grid-cols-1 gap-6">
           <div className="">
             <IncomeOverview
-              transactions={incomData}
+              transactions={incomeData}
               onAddIncome={() => setOpenAddIncomeModal(true)}
             />
           </div>
 
           <IncomeList
-            transactions={incomData}
+            transactions={incomeData}
             onDelete={(id) => {
               setOpenDeleteAlert({ show: true, data: id });
             }}

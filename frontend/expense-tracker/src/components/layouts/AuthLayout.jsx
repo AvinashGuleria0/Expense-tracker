@@ -39,7 +39,7 @@ const StatsInfoCard = ({ icon, label, value, color }) => {
       <div className={`stats-icon ${color}`}>{icon}</div>
       <div className="stats-info">
         <h6>{label}</h6>
-        <span>${value}</span>
+        <span>₹{value}</span>
       </div>
     </div>
   );
