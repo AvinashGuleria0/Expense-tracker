@@ -1,0 +1,7 @@
+/login         /index.html   200
+/signUp        /index.html   200
+/dashboard     /index.html   200
+/income        /index.html   200
+/expense       /index.html   200
+/              /index.html   200
+/*             https://error-404-avi.netlify.app/   301
