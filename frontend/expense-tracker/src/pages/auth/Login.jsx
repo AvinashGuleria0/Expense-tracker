@@ -57,7 +57,7 @@ const Login = () => {
           Please Enter Your Details To Login
         </p>
 
-        <form onSubmit={handleLogin} action="">
+        <form onSubmit= {handleLogin} action="">
           <Input
             type="text"
             value={email}

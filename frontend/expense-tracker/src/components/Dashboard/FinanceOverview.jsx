@@ -6,8 +6,8 @@ const COLORS = ["#875CF5", "#FA2C37", "#FF6900"];
 const FinanceOverview = ({ totalIncome, totalBalance, totalExpense }) => {
   const balanceData = [
     { name: "Total Balance", amount: totalBalance },
-    { name: "Total Income", amount: totalIncome },
     { name: "Total Expense", amount: totalExpense },
+    { name: "Total Income", amount: totalIncome },
   ];
   return (
     <div className="card">
