@@ -1,7 +1,7 @@
 # Live Link 
 ### https://avi-expense-tracker.netlify.app 
 
-https://github.com/AvinashGuleria0/Expense-tracker/raw/main/frontend/expense-tracker/public/linkedin-video.mp4
+<video src="https://github.com/AvinashGuleria0/Expense-tracker/raw/main/frontend/expense-tracker/public/linkedin-video.mp4" width="100%"></video>
 
 # Expense Tracker
 
