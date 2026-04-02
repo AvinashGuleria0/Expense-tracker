@@ -1,7 +1,8 @@
 # Live Link 
 ### https://avi-expense-tracker.netlify.app 
 
-[[Video Demonstration](https://raw.githubusercontent.com/username/repository/main/frontend/expense-tracker/public/linkedin-video.mp4)](https://raw.githubusercontent.com/username/repository/main/frontend/expense-tracker/public/linkedin-video.mp4)
+https://github.com/AvinashGuleria0/Expense-tracker/raw/main/frontend/expense-tracker/public/linkedin-video.mp4
+
 # Expense Tracker
 
 A full-stack web application for tracking personal expenses and income. Built with a Node.js backend and a React frontend, featuring user authentication, data visualization, and responsive design.
